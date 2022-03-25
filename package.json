@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nyazitaj/dfsr-nodejs-crud/issues"
   },
-  "homepage": "https://github.com/nyazitaj/dfsr-nodejs-crud#readme"
+  "homepage": "https://github.com/nyazitaj/dfsr-nodejs-crud#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
