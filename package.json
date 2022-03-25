@@ -1,0 +1,19 @@
+{
+  "name": "dfsr-nodejs-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyazitaj/dfsr-nodejs-crud.git"
+  },
+  "author": "Taj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyazitaj/dfsr-nodejs-crud/issues"
+  },
+  "homepage": "https://github.com/nyazitaj/dfsr-nodejs-crud#readme"
+}
