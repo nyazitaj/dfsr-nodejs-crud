@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <div class="background-overlay"></div>
+
     <div class="container">
         <div class="header">
             <div class="header-inner">
@@ -42,15 +44,41 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td><img src="" alt=""/></td>
+                                <td class="thumbnail"><img src="../assets/images/Lucia.jpg" alt=""/></td>
                                 <td>Tous mes bowls</td>
                                 <td>Pamela Reif</td>
                                 <td>Cuisine</td>
                                 <td>Plus de 70 recettes saines pour...</td>
                                 <td>01/01/2021</td>
-                                <td>
-                                    <span><img src="" alt=""/></span>
-                                    <span><img src="" alt=""/></span>
+                                <td class="action-buttons">
+                                    <span class="icon-edit"><img src="../assets/images/edit.png" alt="Modifier"/></span>
+                                    <span class="icon-delete"><img src="../assets/images/delete.png" alt="Supprimer"/></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="thumbnail"><img src="../assets/images/The-Bone-season-T04-Le-masque-tombe-relie.jpg" alt=""/></td>
+                                <td>Tous mes bowls</td>
+                                <td>Pamela Reif</td>
+                                <td>Cuisine</td>
+                                <td>Plus de 70 recettes saines pour...</td>
+                                <td>01/01/2021</td>
+                                <td class="action-buttons">
+                                    <span class="icon-edit"><img src="../assets/images/edit.png" alt="Modifier"/></span>
+                                    <span class="icon-delete"><img src="../assets/images/delete.png" alt="Supprimer"/></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="thumbnail"><img src="../assets/images/Vous-meritez-ce-livre.jpg" alt=""/></td>
+                                <td>Tous mes bowls</td>
+                                <td>Pamela Reif</td>
+                                <td>Cuisine</td>
+                                <td>Plus de 70 recettes saines pour...</td>
+                                <td>01/01/2021</td>
+                                <td class="action-buttons">
+                                    <span class="icon-edit"><img src="../assets/images/edit.png" alt="Modifier"/></span>
+                                    <span class="icon-delete"><img src="../assets/images/delete.png" alt="Supprimer"/></span>
                                 </td>
                             </tr>
                         </tbody>
@@ -59,5 +87,68 @@
             </div>
         </div>
     </div>
+
+    <div id="container-new-livre" class="background-overlay-form">
+        <div class="container-new">
+            <div class="row-title">
+                <h2>Nouvdeau LIVRE</h2>
+            </div>
+            <form>
+                <div class="row-field">
+                    <label>Titre</label>
+                    <input type="text" name="title"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Auteur</label>
+                    <input type="text" name="author"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Genre</label>
+                    <select name="Cuisine">
+                        <option>Cuisine</option>
+                        <option>Voyage</option>
+                        <option>Sport</option>
+                    </select>
+                </div>
+
+                <div class="row-field">
+                    <label>Miniature</label>
+                    <input type="text" name="thumbnail"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Date de publication</label>
+                    <input type="text" name="date-pub"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Sommaire</label>
+                    <textarea name="thumbnail" rows="5"></textarea>
+                </div>
+
+                <div class="row-field row-buttons">
+                    <button type="submit">Annuler</button>
+                    <button type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- <div id="container-new-livre" class="background-overlay-form">
+        <div class="container-new">
+            <div class="row-title">
+                <h2>Etes-vous sûr que vous voulez supprimer ?</h2>
+            </div>
+            <form>
+                <div class="row-field row-buttons">
+                    <button type="submit">Annuler</button>
+                    <button type="submit">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
 
 </html>
