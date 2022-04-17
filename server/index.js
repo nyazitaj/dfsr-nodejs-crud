@@ -26,7 +26,7 @@ app.listen(port, () => {
 });
 
 
-// Configuration de express
+// Configuration d'express
 const distDir = '../src/';
 app.use('/pages', express.static(path.join(__dirname, distDir, '/pages')));
 app.use('/assets', express.static(path.join(__dirname, distDir, '/assets')));
