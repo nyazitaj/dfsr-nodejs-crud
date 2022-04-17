@@ -11,8 +11,8 @@ This CRUD system is initially started using node.js and some other necessary web
 ## All the steps:
 
 Starting the project:
-    - npm init
+  - npm init
 
 Running the app on **http://localhost:3001/**:
-    - node server
+  - node server
 
