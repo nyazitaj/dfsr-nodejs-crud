@@ -5,7 +5,8 @@ The project **Livres** is created during Metz-Numeric-Shcool training by [Taj Ny
 # Livres
 
 This CRUD system is initially started using node.js and some other necessary web features. All are listed below :
-- [Node.js](https://nodejs.org/en/)
+  - [Node.js](https://nodejs.org/en/)
+  - [Modules, export and import](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules)
 
 
 ## All the steps:

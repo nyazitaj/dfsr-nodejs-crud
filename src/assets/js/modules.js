@@ -1,5 +1,3 @@
-const { test } = import(test());
+import { test } from './index.js';
 
-const testy = test
-
-console.log(testy)
+console.log(test())
