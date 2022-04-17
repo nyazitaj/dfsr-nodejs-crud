@@ -1,3 +1,9 @@
-import { test } from './index.js';
+import { CRUD } from './index.js';
 
-console.log(test())
+document.querySelector('#add-new-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    new CRUD(
+        new FormData(this)
+    );
+})

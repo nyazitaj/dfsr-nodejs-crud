@@ -17,3 +17,10 @@ Starting the project:
 Running the app on **http://localhost:3001/**:
   - node server
 
+In order to restart the server automatically with any changes in the project files are made, I installed **Nodemon**:
+  - npm install -g nodemon
+  - OR npm install nodemon
+  - nodemon server/index
+
+
+

@@ -15,6 +15,8 @@ server.listen(3001); */
   let app = require('express')();
 */
 
+
+// Creating Server
 const express = require('express');
 const path = require('path');
 const Livres = require('./data/livres');
@@ -67,6 +69,6 @@ app.get('/liste/:id', (req, res) => {
 });
 
 app.post('/liste', (req, res) => {
-    Livres.push(req.body);
+    /* Livres.push(req.body); */
     res.send(Livres);
 });
