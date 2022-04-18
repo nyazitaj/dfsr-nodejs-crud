@@ -1,107 +1,164 @@
 export class CRUD {
-    constructor(ojb) {
-        // return 'test';
+    constructor() {
 
+        // Saving the "Books" list in the Javascript "localStorage", whenever we visit the website for the first time.
+        if (localStorage.getItem('book_list') == null) {
+            fetch('http://localhost:3001/list')
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (myBooks) {
 
-        /* document.querySelector('#add-new-book').addEventListener('click', function(e) {
-            e.preventDefault();
-
-            this.BookList()
-        }) */
-
-        ojb.append('name', 'Nyazi');
-
-        /* console.log(ojb.get('name')); */
-
-        /* for (var value of ojb.values()) {
-            console.log(value);
-        } */
+                    localStorage.setItem(
+                        'book_list', myBooks
+                    );
+                });
+        }
     }
 
-    // Method for displaying the books list.
+    // Method for displaying the books list
     BookList() {
-        var taj;
-        fetch('http://localhost:3001/list')
-            .then(function (response) {
-                return response.text();
+
+
+        // Preparing the HTML <table> of book list received from localStorage
+        var myBooksParse = JSON.parse(localStorage.getItem('book_list'))
+
+        var ct = 1;
+        for (var x in myBooksParse) {
+            var elemTr = document.createElement('tr');
+
+            // Creating "ID"
+            var elemTd1 = document.createElement('td');
+            elemTd1.innerHTML = ct;
+
+            // Creating "Miniatuer"
+            var elemTd2 = document.createElement('td');
+            elemTd2.setAttribute('class', 'thumbnail')
+            var elemImg = document.createElement('img');
+            elemImg.setAttribute('src', myBooksParse[x].img)
+            elemImg.setAttribute('alt', myBooksParse[x].name)
+            elemTd2.appendChild(elemImg);
+
+            // Creating "Titre"
+            var elemTd3 = document.createElement('td');
+            elemTd3.innerHTML = myBooksParse[x].name;
+
+            // Creating "Autheur"
+            var elemTd4 = document.createElement('td');
+            elemTd4.innerHTML = myBooksParse[x].author;
+
+            // Creating "Genre"
+            var elemTd5 = document.createElement('td');
+            elemTd5.innerHTML = myBooksParse[x].genre;
+
+            // Creating "Date"
+            var elemTd6 = document.createElement('td');
+            elemTd6.innerHTML = myBooksParse[x].publish_date;
+
+            // Creating "Action" buttons
+            var elemTd7 = document.createElement('td');
+            elemTd7.setAttribute('class', 'action-buttons')
+
+            var elemSpan1 = document.createElement('span');
+            elemSpan1.setAttribute('class', 'icon-edit')
+            elemSpan1.setAttribute('btn-id', x)
+
+            elemSpan1.addEventListener('click', function () {
+                this.DeleteBook(this.getAttribute('btn-id'))
             })
-            .then(function (myBlob) {
-                console.log(JSON.parse(myBlob));
 
-                var myBlobParse = JSON.parse(myBlob)
+            var elemImg1 = document.createElement('img');
+            elemImg1.setAttribute('src', '../assets/images/edit.png')
+            elemImg1.setAttribute('alt', 'Modifier')
+            elemSpan1.appendChild(elemImg1)
 
-                var ct = 1;
-                for(var x in myBlobParse) {
-                    var elemTr = document.createElement('tr');
+            var elemSpan2 = document.createElement('span');
+            elemSpan2.setAttribute('class', 'icon-delete')
+            elemSpan2.setAttribute('btn-id', x)
 
-                    // Creating "ID"
-                    var elemTd1 = document.createElement('td');
-                    elemTd1.innerHTML = ct;
+            // Function to delete the selected Book
+            elemSpan2.addEventListener('click', function () {
+                var myBooksParse = JSON.parse(
+                    localStorage.getItem('book_list')
+                )
 
-                    // Creating "Miniatuer"
-                    var elemTd2 = document.createElement('td');
-                    elemTd2.setAttribute('class', 'thumbnail')
-                    var elemImg = document.createElement('img');
-                    elemImg.setAttribute('src', '../assets/images/' + myBlobParse[x].img)
-                    elemImg.setAttribute('alt', myBlobParse[x].name)
-                    elemTd2.appendChild(elemImg);
+                myBooksParse.splice(this.getAttribute('btn-id'), 1)
 
-                    // Creating "Titre"
-                    var elemTd3 = document.createElement('td');
-                    elemTd3.innerHTML = myBlobParse[x].name;
+                localStorage.setItem(
+                    'book_list', JSON.stringify(myBooksParse)
+                );
 
-                    // Creating "Autheur"
-                    var elemTd4 = document.createElement('td');
-                    elemTd4.innerHTML = myBlobParse[x].author.name;
+                document.querySelector('#book-list').innerHTML = '';
+                new CRUD().BookList();
 
-                    // Creating "Genre"
-                    var elemTd5 = document.createElement('td');
-                    elemTd5.innerHTML = myBlobParse[x].genre;
+            })
 
-                    /* // Creating "Sommaire"
-                    var elemTd6 = document.createElement('td');
-                    elemTd6.innerHTML = myBlobParse[x].name; */
+            var elemImg2 = document.createElement('img');
+            elemImg2.setAttribute('src', '../assets/images/delete.png')
+            elemImg2.setAttribute('alt', 'Supprimer')
+            elemSpan2.appendChild(elemImg2)
 
-                    // Creating "Date"
-                    var elemTd7 = document.createElement('td');
-                    elemTd7.innerHTML = myBlobParse[x].publish_date;
+            elemTd7.appendChild(elemSpan1)
+            elemTd7.appendChild(elemSpan2)
 
-                    // Creating "Action" buttons
-                    var elemTd8 = document.createElement('td');
-                    elemTd8.setAttribute('class', 'action-buttons')
+            elemTr.appendChild(elemTd1)
+            elemTr.appendChild(elemTd2)
+            elemTr.appendChild(elemTd3)
+            elemTr.appendChild(elemTd4)
+            elemTr.appendChild(elemTd5)
+            elemTr.appendChild(elemTd6)
+            elemTr.appendChild(elemTd7)
+            document.querySelector('#book-list').appendChild(elemTr);
 
-                    var elemSpan1 = document.createElement('span');
-                    elemSpan1.setAttribute('class', 'icon-edit')
-                    var elemImg1 = document.createElement('img');
-                    elemImg1.setAttribute('src', '../assets/images/edit.png')
-                    elemImg1.setAttribute('alt', 'Modifier')
-                    elemSpan1.appendChild(elemImg1)
+            ct += 1;
 
-                    var elemSpan2 = document.createElement('span');
-                    elemSpan2.setAttribute('class', 'icon-delete')
-                    var elemImg2 = document.createElement('img');
-                    elemImg2.setAttribute('src', '../assets/images/delete.png')
-                    elemImg2.setAttribute('alt', 'Supprimer')
-                    elemSpan2.appendChild(elemImg2)
+        }
+    }
 
-                    elemTd8.appendChild(elemSpan1)
-                    elemTd8.appendChild(elemSpan2)
+    // Method for adding a new Book to the Books list of localStorage
+    AddNewBook(e) {
 
-                    elemTr.appendChild(elemTd1)
-                    elemTr.appendChild(elemTd2)
-                    elemTr.appendChild(elemTd3)
-                    elemTr.appendChild(elemTd4)
-                    elemTr.appendChild(elemTd5)
-                    /* elemTr.appendChild(elemTd6) */
-                    elemTr.appendChild(elemTd7)
-                    elemTr.appendChild(elemTd8)
+        // Creating a new list (newArray) of data recived from HTML form
+        var data = new FormData(e.target);
 
-                    document.querySelector('#book-list').appendChild(elemTr);
+        var newArray = {
+            name: data.get('title'),
+            author: data.get('author'),
+            genre: data.get('genre'),
+            img: data.get('thumbnail'),
+            publish_date: data.get('date-pub')
+        }
 
-                    ct += 1;
+        // Adding the newly created list to the localStorage list
+        var myBooksParse = JSON.parse(
+            localStorage.getItem('book_list')
+        )
 
-                }
-            });
+        myBooksParse.push(newArray);
+
+        localStorage.setItem(
+            'book_list', JSON.stringify(myBooksParse)
+        );
+
+        document.querySelector('#container-new-livre').classList.add('d-none');
+    }
+
+    // Showing the HTML form
+    FormShow() {
+        document.querySelector('#container-new-livre').classList.remove('d-none');
+    }
+
+    // Canceling the HTML form
+    FormCancel() {
+        document.querySelector('#container-new-livre').classList.add('d-none');
+    }
+
+    // Clearing the localStorage to get the default Book list
+    ClearList() {
+        localStorage.clear();
+
+        location.reload();
+        new CRUD().BookList();
     }
 
     // _bgCouleur;

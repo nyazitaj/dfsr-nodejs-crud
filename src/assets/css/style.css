@@ -14,6 +14,9 @@ body {
     left: 0;
     z-index: -1;
 }
+.d-none {
+    display: none;
+}
 
 /* Header */
 .header {
@@ -73,7 +76,7 @@ tr:nth-child(even) {
 }
 td,
 th {
-    border: 1px solid #edebeb;
+    border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
 }
@@ -81,7 +84,7 @@ th {
     background-color: #858585;
 }
 td {
-    background-color: #DADADA;
+    background-color: #F2EEEE;
     color: black;
     font-size: 0.8em;
     padding: 15px 8px;
@@ -91,10 +94,10 @@ td.action-buttons {
 }
 
 td.thumbnail {
-    padding: 0;
+    padding: 4px;
 }
 .thumbnail img {
-    width: 35px;
+    width: 30px;
     margin: auto;
     display: block;
 }
@@ -160,8 +163,7 @@ span.icon-delete {
     padding: 0 0 3px;
 }
 .container-new .row-field input,
-.container-new .row-field select,
-.container-new .row-field textarea {
+.container-new .row-field select {
     width: 100%;
     padding: 5px;
 }

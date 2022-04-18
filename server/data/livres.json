@@ -1,102 +1,72 @@
 [
     {
         "name": "The Train that Could Not Go Tombstone",
-        "author": {
-            "name": "Gilbert Martin",
-            "gender": "male"
-        },
+        "author": "Gilbert Martin",
         "genre": "Speculative",
         "publish_date": "2007-10-18",
-        "img": "Antigone.jpg"
+        "img": "../assets/images/Antigone.jpg"
     },
     {
         "name": "The Us On",
-        "author": {
-            "name": "Alejandro Powell",
-            "gender": "male"
-        },
+        "author": "Alejandro Powell",
         "genre": "Western",
         "publish_date": "2000-03-21",
-        "img": "Territory.jpg"
+        "img": "../assets/images/Territory.jpg"
     },
     {
         "name": "Gold in Dancing Opportunity",
-        "author": {
-            "name": "Jeffrey Diaz",
-            "gender": "male"
-        },
+        "author": "Jeffrey Diaz",
         "genre": "Urban",
         "publish_date": "2004-05-11",
-        "img": "Lysarian.png"
+        "img": "../assets/images/Lysarian.png"
     },
     {
         "name": "The Stars that Shall Murder",
-        "author": {
-            "name": "John Ford",
-            "gender": "male"
-        },
+        "author": "John Ford",
         "genre": "Urban",
         "publish_date": "2008-05-14",
-        "img": "La Vampire.jpg"
+        "img": "../assets/images/La Vampire.jpg"
     },
     {
         "name": "Owning the Patch",
-        "author": {
-            "name": "Brandon Hoffman",
-            "gender": "male"
-        },
+        "author": "Brandon Hoffman",
         "genre": "Mystery",
         "publish_date": "2006-04-21",
-        "img": "L'Épousée du Ciel habite le 11 code 33.jpg"
+        "img": "../assets/images/L'Épousée du Ciel habite le 11 code 33.jpg"
     },
     {
         "name": "Earth in Lead Caesar",
-        "author": {
-            "name": "Jordan Smith",
-            "gender": "male"
-        },
+        "author": "Jordan Smith",
         "genre": "Superhero",
         "publish_date": "2003-04-05",
-        "img": "Journal d'une ado de 40 ans.jpg"
+        "img": "../assets/images/Journal d'une ado de 40 ans.jpg"
     },
     {
         "name": "The Minutes With the Wayward Wind",
-        "author": {
-            "name": "Albert Garrett",
-            "gender": "male"
-        },
+        "author": "Albert Garrett",
         "genre": "realism",
         "publish_date": "2007-09-04",
-        "img": "L'Encyclopédie du Merveilleux.jpg"
+        "img": "../assets/images/L'Encyclopédie du Merveilleux.jpg"
     },
     {
         "name": "Vials of Birds",
-        "author": {
-            "name": "Timothy Patrick",
-            "gender": "male"
-        },
+        "author": "Timothy Patrick",
         "genre": "Saga",
         "publish_date": "2001-08-21",
-        "img": "L'Encyclopédie du savoir relatif et absolu.jpg"
+        "img": "../assets/images/L'Encyclopédie du savoir relatif et absolu.jpg"
     },
     {
         "name": "The Silent Copper They",
-        "author": {
-            "name": "Scott Foster",
-            "gender": "male"
-        },
+        "author": "Scott Foster",
         "genre": "Political",
         "publish_date": "2004-07-05",
-        "img": "Métaphysique des tubes.jpg"
+        "img": "../assets/images/Métaphysique des tubes.jpg"
     },
     {
         "name": "Mystery of Days",
-        "author": {
-            "name": "Alex Lucas",
-            "gender": "male"
-        },
+        "author": "Alex Lucas",
         "genre": "Science",
         "publish_date": "2003-04-03",
-        "img": "Le Songe d'une nuit d'été.jpg"
+        "img": "../assets/images/Le Songe d'une nuit d'été.jpg"
     }
 ]

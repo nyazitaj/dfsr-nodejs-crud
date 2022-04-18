@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="../assets/images/nodejs.svg" sizes="32x32" />
     <link rel="stylesheet" href="../assets/css/style.css" >
     <script type="module" src="../assets/js/modules.js"></script>
 </head>
@@ -23,7 +24,8 @@
         <div class="books">
             <div class="book-inner">
                 <div class="btn-new">
-                    <button type="submit">Nouveau</button>
+                    <button type="submit" id="clear-list">Restore default</button>
+                    <button type="submit" id="add-new">Nouveau</button>
                 </div>
 
                 <div class="book-list">
@@ -44,6 +46,63 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="container-new-livre" class="background-overlay-form d-none">
+        <div class="container-new">
+            <div class="row-title">
+                <h2>Nouvdeau LIVRE</h2>
+            </div>
+            <form id="book-form">
+                <div class="row-field">
+                    <label>Titre</label>
+                    <input type="text" name="title"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Auteur</label>
+                    <input type="text" name="author"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Genre</label>
+                    <select name="genre">
+                        <option>Cuisine</option>
+                        <option>Voyage</option>
+                        <option>Sport</option>
+                    </select>
+                </div>
+
+                <div class="row-field">
+                    <label>Miniature</label>
+                    <input type="text" name="thumbnail"/>
+                </div>
+
+                <div class="row-field">
+                    <label>Date de publication</label>
+                    <input type="date" name="date-pub"/>
+                </div>
+
+                <div class="row-field row-buttons">
+                    <button type="submit" id="cancel">Annuler</button>
+                    <button type="submit">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="container-delete-livre" class="background-overlay-form d-none">
+        <div class="container-new">
+            <div class="row-title">
+                <h2>Etes-vous sûr que vous voulez supprimer ?</h2>
+            </div>
+            <form>
+                <div class="row-field row-buttons">
+                    <button type="submit">Annuler</button>
+                    <button type="submit">Valider</button>
+                </div>
+            </form>
         </div>
     </div>
 
