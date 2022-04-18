@@ -4,11 +4,25 @@ The project **Livres** is created during Metz-Numeric-Shcool training by [Taj Ny
 
 # Livres
 
-This CRUD system is initially started using node.js and some other necessary web features. All are listed below :
-  - [Node.js](https://nodejs.org/en/)
-  - [Express](https://developer.mozilla.org/fr/docs/Learn/Server-side/Express_Nodejs/Introduction)
+This CRUD system is initially started using node.js and some other necessary web features. All are listed below for Frontend and Backend :
+
+## Frontend
+
+  - Native Javascript
+  - DOM manipulation
+  - Event management
   - [Modules, export and import](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules)
   - [Javascript Fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)
+  - [Getters](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/get) and [Setters](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/set)
+  - HTTP request using Fetch
+  - [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage)
+  - Form Validation (Not done yet)
+
+## Backend
+
+  - [Node.js](https://nodejs.org/en/)
+  - [Express](https://developer.mozilla.org/fr/docs/Learn/Server-side/Express_Nodejs/Introduction)
+  - **/server/data/livres.json** file has the initial Books list.
 
 
 ## All the steps:
