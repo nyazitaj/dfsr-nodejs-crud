@@ -192,12 +192,27 @@ export class CRUD {
         // Creating a new list (newArray) of data recived from HTML form
         var data = new FormData(e.target);
 
+        var checkEmpty = true;
         var newArray = {
-            name: data.get('title'),
-            author: data.get('author'),
-            genre: data.get('genre'),
-            img: data.get('thumbnail'),
-            publish_date: data.get('date-pub')
+            name: data.get('title') != '' ? data.get('title') : checkEmpty = false,
+            author: data.get('author') != '' ? data.get('author') : checkEmpty = false,
+            genre: data.get('genre') != '' ? data.get('genre') : checkEmpty = false,
+            img: data.get('thumbnail') != '' ? data.get('thumbnail') : checkEmpty = false,
+            publish_date: data.get('date-pub') != '' ? data.get('date-pub') : checkEmpty = false
+        }
+
+        var resetTimer;
+        clearInterval(resetTimer);
+
+        var resetTimer = setInterval(() => {
+            document.querySelector('#msg-alert').innerHTML = ''
+
+            clearInterval(resetTimer);
+        }, 2000);
+
+        if (checkEmpty == false) {
+            document.querySelector('#msg-alert').innerHTML = 'Tous les champs sont requis'
+            return;
         }
 
         // Adding the newly created list to the localStorage list
@@ -212,6 +227,9 @@ export class CRUD {
         );
 
         document.querySelector('#container-new-livre').classList.add('d-none');
+
+        document.querySelector('#book-list').innerHTML = '';
+        new CRUD().BookList;
 
         e.target.reset();
     }

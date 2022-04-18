@@ -170,6 +170,7 @@ span.icon-delete {
 .container-new .row-field.row-buttons {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 35px;
 }
 .container-new .row-field.row-buttons button {
     padding: 7px 30px;
@@ -191,4 +192,11 @@ span.icon-delete {
 .container-new .row-field.row-buttons button:nth-child(2):hover {
     background-color: white;
     color: black;
+}
+
+/* Message alert */
+p.msg-alert {
+    color: red;
+    font-size: 0.7em;
+    text-align: center;
 }
