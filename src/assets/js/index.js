@@ -14,11 +14,38 @@ export class CRUD {
                     );
                 });
         }
+
+        // Showing the HTML form
+        document.querySelector('#add-new').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            new CRUD().FormShow();
+        })
+
+        // Adding a new Book
+        document.querySelector('#book-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            new CRUD().AddNewBook(e);
+        })
+
+        // Canceling the HTML form
+        document.querySelector('#cancel-new').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            new CRUD().FormCancel;
+        })
+
+        // Restore the default list
+        document.querySelector('#clear-list').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            new CRUD().ClearList;
+        })
     }
 
     // Method for displaying the books list
-    BookList() {
-
+    get BookList() {
 
         // Preparing the HTML <table> of book list received from localStorage
         var myBooksParse = JSON.parse(localStorage.getItem('book_list'))
@@ -61,10 +88,38 @@ export class CRUD {
 
             var elemSpan1 = document.createElement('span');
             elemSpan1.setAttribute('class', 'icon-edit')
-            elemSpan1.setAttribute('btn-id', x)
+            elemSpan1.setAttribute('btn-id', x);
 
+            // Function to UPDATE the selected Book
             elemSpan1.addEventListener('click', function () {
-                this.DeleteBook(this.getAttribute('btn-id'))
+
+                // Displaying the HTML form
+                document.querySelector('#container-new-livre').classList.remove('d-none');
+
+                // Preparing the CANCEL button
+                document.querySelector('#cancel-new').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    new CRUD().FormCancel;
+                });
+
+                // Preparing the SAVE button
+                var btnDelete = document.querySelector('#save-modifications');
+
+                btnDelete.setAttribute('btn-id', this.getAttribute('btn-id'));
+
+                btnDelete.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    new CRUD().UpdateBook(this.getAttribute('btn-id'));
+                })
+
+                /* var elemBtn1 = document.createElement('button');
+                elemBtn1.setAttribute('id', 'cancel-delete-' + x);
+
+                var elemBtn2 = document.createElement('button');
+                elemBtn2.setAttribute('id', 'cancel-edit-' + x);
+
+                elemSpan2.appendChild(elemImg2) */
+
             })
 
             var elemImg1 = document.createElement('img');
@@ -78,18 +133,24 @@ export class CRUD {
 
             // Function to delete the selected Book
             elemSpan2.addEventListener('click', function () {
-                var myBooksParse = JSON.parse(
-                    localStorage.getItem('book_list')
-                )
 
-                myBooksParse.splice(this.getAttribute('btn-id'), 1)
+                // Displaying the delete POPUP
+                document.querySelector('#container-delete-livre').classList.remove('d-none');
 
-                localStorage.setItem(
-                    'book_list', JSON.stringify(myBooksParse)
-                );
+                // Preparing the CANCEL button
+                document.querySelector('#cancel-delete').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    new CRUD().CancelDelete;
+                });
 
-                document.querySelector('#book-list').innerHTML = '';
-                new CRUD().BookList();
+                // Preparing the CONFORM DELETE button
+                var btnDelete = document.querySelector('#confirm-delete');
+                btnDelete.setAttribute('btn-id', this.getAttribute('btn-id'));
+
+                btnDelete.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    new CRUD().DeleteBook(this.getAttribute('btn-id'));
+                })
 
             })
 
@@ -141,6 +202,8 @@ export class CRUD {
         );
 
         document.querySelector('#container-new-livre').classList.add('d-none');
+
+        /* e.target.reset(); */
     }
 
     // Showing the HTML form
@@ -149,72 +212,65 @@ export class CRUD {
     }
 
     // Canceling the HTML form
-    FormCancel() {
-        document.querySelector('#container-new-livre').classList.add('d-none');
+    get FormCancel() {
+        document.querySelector('#container-new-livre', '#container-delete-livre').classList.add('d-none');
+    }
+
+    // Canceling the DELETE operation
+    get CancelDelete() {
+        document.querySelector('#container-delete-livre').classList.add('d-none');
     }
 
     // Clearing the localStorage to get the default Book list
-    ClearList() {
+    get ClearList() {
         localStorage.clear();
 
         location.reload();
-        new CRUD().BookList();
+        new CRUD().BookList;
     }
 
-    // _bgCouleur;
-    // _taille;
-    // _target;
-    // _style;0
+    // Method to DELETE the selected Book
+    DeleteBook(id) {
+        console.log(+id);
 
-    // constructor(couleur, taille=50, target, style='square') {
-    //     /* this._bgCouleur = couleur;
-    //     this._taille = taille;
-    //     this._target = target;
-    //     this._style = style; */
+        var myBooksParse = JSON.parse(
+            localStorage.getItem('book_list')
+        )
 
-    //     setCouleur(couleur);
-    //     taille <=50 ? setTaille(taille): 50;
-    //     setTarget(target);
-    //     setStyle(style);
+        myBooksParse.splice(+id, 1)
 
-    //     var elemCarre = document.createElement('div');
-    //     elemCarre.style.backgroundColor = getCouleur();
-    //     elemCarre.style.width = getTaille();
-    //     elemCarre.style.height = getTaille();
+        localStorage.setItem(
+            'book_list', JSON.stringify(myBooksParse)
+        );
 
-    //     document.querySelector('#' + getTarget()).appendChild(elemCarre);
-    // }
+        document.querySelector('#book-list').innerHTML = '';
+        new CRUD().BookList;
 
-    // get getCouleur() {
-    //     return this._bgCouleur;
-    // }
+        document.querySelector('#container-delete-livre').classList.add('d-none');
+    }
 
-    // set setCouleur(couleur) {
-    //     this._bgCouleur = couleur;
-    // }
+    // Method to UPDATE the select book
+    UpdateBook(id) {
 
-    // get getTaille() {
-    //     return this._taille + 'px';
-    // }
+        console.log(id)
 
-    // set setTaille(taille) {
-    //     this._taille = taille;
-    // }
+        var myBooksParse = JSON.parse(
+            localStorage.getItem('book_list')
+        )
 
-    // get getTarget() {
-    //     return this._target;
-    // }
+        console.log(
+            myBooksParse[id]
+        );
 
-    // set setTarget(target) {
-    //     this._target = target;
-    // }
+        /* localStorage.setItem(
+            'book_list', JSON.stringify(myBooksParse)
+        );
 
-    // get getStyle() {
-    //     return this._style;
-    // }
+        document.querySelector('#book-list').innerHTML = '';
+        new CRUD().BookList;
 
-    // set setStyle(style) {
-    //     this._style = style;
-    // }
+        document.querySelector('#container-delete-livre').classList.add('d-none'); */
+
+    }
 }
 

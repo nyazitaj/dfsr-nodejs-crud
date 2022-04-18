@@ -38,7 +38,7 @@
                                 <th>Auteur</th>
                                 <th>Genre</th>
                                 <th>Date</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
 
@@ -85,8 +85,8 @@
                 </div>
 
                 <div class="row-field row-buttons">
-                    <button type="submit" id="cancel">Annuler</button>
-                    <button type="submit">Ajouter</button>
+                    <button type="submit" id="cancel-new">Annuler</button>
+                    <button type="submit" id="save-modifications">Ajouter</button>
                 </div>
             </form>
         </div>
@@ -98,9 +98,9 @@
                 <h2>Etes-vous sûr que vous voulez supprimer ?</h2>
             </div>
             <form>
-                <div class="row-field row-buttons">
-                    <button type="submit">Annuler</button>
-                    <button type="submit">Valider</button>
+                <div id="row-buttons" class="row-field row-buttons">
+                    <button type="submit" id="cancel-delete">Annuler</button>
+                    <button type="submit" id="confirm-delete">Valider</button>
                 </div>
             </form>
         </div>
