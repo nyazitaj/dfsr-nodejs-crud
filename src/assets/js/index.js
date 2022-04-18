@@ -19,6 +19,7 @@ export class CRUD {
         document.querySelector('#add-new').addEventListener('click', function (e) {
             e.preventDefault();
 
+            document.querySelector("#save-modifications").innerHTML = "Ajouter"
             new CRUD().FormShow();
         })
 
@@ -97,7 +98,7 @@ export class CRUD {
                 document.querySelector('#container-new-livre').classList.remove('d-none');
 
                 // Preparing the CANCEL button
-                document.querySelector('#cancel-new').addEventListener('click', function(e) {
+                document.querySelector('#cancel-new').addEventListener('click', function (e) {
                     e.preventDefault();
                     new CRUD().FormCancel;
                 });
@@ -107,10 +108,19 @@ export class CRUD {
 
                 btnDelete.setAttribute('btn-id', this.getAttribute('btn-id'));
 
-                btnDelete.addEventListener('click', function(e) {
+                btnDelete.addEventListener('click', function (e) {
                     e.preventDefault();
                     new CRUD().UpdateBook(this.getAttribute('btn-id'));
                 })
+
+                const BookVal = myBooksParse[this.getAttribute('btn-id')];
+
+                document.querySelector("input[name=title]").value = BookVal.name
+                document.querySelector("input[name=author]").value = BookVal.author
+                document.querySelector("select[name=genre]").value = BookVal.genre
+                document.querySelector("input[name=thumbnail]").value = BookVal.img
+                document.querySelector("input[name=date-pub]").value = BookVal.publish_date
+                document.querySelector("#save-modifications").innerHTML = "Enregistrer"
 
                 /* var elemBtn1 = document.createElement('button');
                 elemBtn1.setAttribute('id', 'cancel-delete-' + x);
@@ -138,7 +148,7 @@ export class CRUD {
                 document.querySelector('#container-delete-livre').classList.remove('d-none');
 
                 // Preparing the CANCEL button
-                document.querySelector('#cancel-delete').addEventListener('click', function(e) {
+                document.querySelector('#cancel-delete').addEventListener('click', function (e) {
                     e.preventDefault();
                     new CRUD().CancelDelete;
                 });
@@ -147,7 +157,7 @@ export class CRUD {
                 var btnDelete = document.querySelector('#confirm-delete');
                 btnDelete.setAttribute('btn-id', this.getAttribute('btn-id'));
 
-                btnDelete.addEventListener('click', function(e) {
+                btnDelete.addEventListener('click', function (e) {
                     e.preventDefault();
                     new CRUD().DeleteBook(this.getAttribute('btn-id'));
                 })
@@ -203,7 +213,7 @@ export class CRUD {
 
         document.querySelector('#container-new-livre').classList.add('d-none');
 
-        /* e.target.reset(); */
+        e.target.reset();
     }
 
     // Showing the HTML form
@@ -252,24 +262,35 @@ export class CRUD {
     // Method to UPDATE the select book
     UpdateBook(id) {
 
-        console.log(id)
+        // Creating a new list (newArray) of data recived from HTML form
+        const DATA = new FormData(document.querySelector('#book-form'));
 
-        var myBooksParse = JSON.parse(
+        const NewList = {
+            name: DATA.get('title'),
+            author: DATA.get('author'),
+            genre: DATA.get('genre'),
+            img: DATA.get('thumbnail'),
+            publish_date: DATA.get('date-pub')
+        }
+
+        const MyBooksParse = JSON.parse(
             localStorage.getItem('book_list')
         )
 
+        MyBooksParse[id] = NewList;
+
         console.log(
-            myBooksParse[id]
+            MyBooksParse[id]
         );
 
-        /* localStorage.setItem(
-            'book_list', JSON.stringify(myBooksParse)
+        localStorage.setItem(
+            'book_list', JSON.stringify(MyBooksParse)
         );
 
         document.querySelector('#book-list').innerHTML = '';
         new CRUD().BookList;
 
-        document.querySelector('#container-delete-livre').classList.add('d-none'); */
+        document.querySelector('#container-new-livre').classList.add('d-none');
 
     }
 }
