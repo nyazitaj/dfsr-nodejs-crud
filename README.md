@@ -16,7 +16,7 @@ This CRUD system is initially started using node.js and some other necessary web
   - [Getters](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/get) and [Setters](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/set)
   - HTTP request using Fetch
   - [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage)
-  - Form Validation
+  - Form Validation, alert message, 
 
 ## Backend
 
