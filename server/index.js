@@ -1,21 +1,3 @@
-/* const http = require('http');
-
-const port = 3001;
-
-const server = http.createServer((req, res) => {
-    console.log(`Le serveur a été démaré sur le PORT : ${port}`);
-    res.end('Coucou ! John');
-});
-
-server.listen(3001); */
-
-
-
-/*
-  let app = require('express')();
-*/
-
-
 // Creating Server
 const express = require('express');
 const path = require('path');
@@ -55,9 +37,9 @@ app.get('/delete', (req, res) => {
 });
 
 
-app.get('/liste', (req, res) => {
+/* app.get('/liste', (req, res) => {
     res.send(Livres);
-});
+}); */
 
 app.get('/liste/:id', (req, res) => {
     let myId = req.params.id;
@@ -68,7 +50,8 @@ app.get('/liste/:id', (req, res) => {
     });
 });
 
-app.post('/liste', (req, res) => {
+// app.post('/liste', (req, res) => {
+app.get('/list', (req, res) => {
     /* Livres.push(req.body); */
     res.send(Livres);
 });

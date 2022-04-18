@@ -6,7 +6,9 @@ The project **Livres** is created during Metz-Numeric-Shcool training by [Taj Ny
 
 This CRUD system is initially started using node.js and some other necessary web features. All are listed below :
   - [Node.js](https://nodejs.org/en/)
+  - [Express](https://developer.mozilla.org/fr/docs/Learn/Server-side/Express_Nodejs/Introduction)
   - [Modules, export and import](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules)
+  - [Javascript Fetch](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch)
 
 
 ## All the steps:
@@ -21,6 +23,4 @@ In order to restart the server automatically with any changes in the project fil
   - npm install -g nodemon
   - OR npm install nodemon
   - nodemon server/index
-
-
 
