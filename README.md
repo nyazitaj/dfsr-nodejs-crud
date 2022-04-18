@@ -38,3 +38,17 @@ In order to restart the server automatically with any changes in the project fil
   - OR npm install nodemon
   - nodemon server/index
 
+
+## Screenshots:
+
+Listing all the books:
+![](/src/assets/images/screenshots/list.png)
+
+Adding new book:
+![](/src/assets/images/screenshots/new-book.png)
+
+Updating a book:
+![](/src/assets/images/screenshots/update-a-book.png)
+
+Deleting a book:
+![](/src/assets/images/screenshots/delete-a-book.png)
